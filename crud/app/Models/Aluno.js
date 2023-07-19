@@ -4,6 +4,13 @@
 const Model = use('Model')
 
 class Aluno extends Model {
+    static get table(){
+        return 'alunos'
+    }
+
+    salas () {
+        return this.belongsToMany("App/Models/Sala").pivotTable("aluno_sala");
+    }
 }
 
 module.exports = Aluno
